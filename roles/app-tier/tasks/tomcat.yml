@@ -1,0 +1,53 @@
+---
+# tasks file for app-tier
+- name: Install Tomcat
+  yum:
+   name: tomcat
+   state: latest
+  notify:
+   - restart-tomcat
+  tags:
+   - apps
+   - tomcat
+
+- name: Create Tomcat directory
+  file:
+   path: "{{ item }}"
+   state: directory
+  loop:
+   - /usr/share/tomcat/webapps/ROOT
+   - /usr/share/tomcat/webapps/ansible
+  tags:
+   - apps
+   - tomcat
+
+- name: Copy static index.html to tomcat webapps/ansible/index.html
+  template:
+   src: templates/index.html.j2
+   dest: /usr/share/tomcat/webapps/ROOT/index.html
+   mode: 0644
+  tags:
+   - apps
+   - tomcat
+
+- name: Copy static index.html on app 1
+  template:
+   src: templates/index.html.app1.j2
+   dest: /usr/share/tomcat/webapps/ansible/index.html
+   mode: 0644
+  when: inventory_hostname == "app1"
+  tags:
+   - apps
+   - tomcat
+
+- name: Copy static index.html on app 2
+  template:
+   src: templates/index.html.app2.j2
+   dest: /usr/share/tomcat/webapps/ansible/index.html
+   mode: 0644
+  when: inventory_hostname == "app2"
+  tags:
+   - apps
+   - tomcat
+
+

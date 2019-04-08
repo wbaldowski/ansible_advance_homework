@@ -1,0 +1,10 @@
+---
+# tasks file for app-tier
+- name: Install Apache
+  yum:
+   name: httpd
+   state: latest
+
+  notify:
+   - start-apache
+
