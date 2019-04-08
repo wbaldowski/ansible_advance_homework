@@ -8,17 +8,18 @@
    - dbs
    - postgres
 
-- name: Check if PostgreSQL database is initialized.
-  stat:
-   path: /var/lib/pgsql/data
+- name: Check if PostgreSQL database is initialized
+  command: postgresql-check-db-dir /var/lib/pgsql/data
   register: a_pg_data_dir
+  changed_when: a_pg_data_dir == 1
+  ignore_errors: yes
   tags:
    - dbs
    - postgres
 
 - name: Ensure PostgreSQL database is initialized.
-  command: postgresql-setup initdb -D /var/lib/pgsql/data
-  when: not a_pg_data_dir.stat.exists
+  shell: postgresql-setup initdb
+  when: a_pg_data_dir.rc != 0
   tags:
    - dbs
    - postgres
