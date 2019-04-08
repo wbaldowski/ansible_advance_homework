@@ -28,6 +28,8 @@ aws_provision_playbook: aws_provision.yml
 ec2_dynamic_inventory: "Three tier inventory"
 aws_ssh_playbook: aws_creds.yml
 opentlc_cred_name: "Opentlc key"
+opentlc_login: "waldemar.baldowski-atos.net"
+opentlc_cred_path: "/root/.ssh/mykey.pem"
 job_template_aws_ssh_keys: "SSH keys three tier app"
 ec2_inventory_source: "Three tier inventory source"
 aws_region_name: "{{ REGION_NAME }}"

@@ -1,2 +1,6 @@
 ---
 # tasks file for app-tier
+- include_tasks: tomcat.yml
+- include_tasks: apache.yml
+
+
