@@ -1,0 +1,8 @@
+---
+- hosts: tag_AnsibleGroup_bastion
+  gather_facts: false
+  become: false
+
+  tasks:
+  - name: Ping hosts from inventory
+    ping: 
