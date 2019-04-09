@@ -1,6 +1,5 @@
 ---
-#- hosts: 'tag_AnsibleGroup_bastions,&tag:instance_filter=three-tier-app-waldemar.baldowski*'
-- hosts: tag_AnsibleGroup_bastion
+- hosts: tag_AnsibleGroup_bastions
   gather_facts: true
   become: true
 
