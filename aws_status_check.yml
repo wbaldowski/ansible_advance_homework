@@ -1,4 +1,4 @@
-- hosts: tag_AnsibleGroup_bastions
+- hosts: tag_AnsibleGroup_frontends
   gather_facts: false
   tasks:
   - name: Check the instances status
