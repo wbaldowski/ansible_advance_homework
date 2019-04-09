@@ -61,9 +61,8 @@
       project: "Homework Assignment"
 
   - name: Update inventory groups
-    command: |
-     tower-cli group associate  --inventory "Three tier inventory" --group "tag_AnsibleGroup_bastions"  --parent "bastions"
-     tower-cli group associate  --inventory "Three tier inventory" --group "tag_AnsibleGroup_appdbs"  --parent "appdbs"
-     tower-cli group associate  --inventory "Three tier inventory" --group "tag_AnsibleGroup_apps"  --parent "apps"
-     tower-cli group associate  --inventory "Three tier inventory" --group "tag_AnsibleGroup_frontends"  --parent "frontends"
-
+    shell: |
+     tower-cli group associate  --group tag_AnsibleGroup_bastions  --parent bastions --inventory "Three tier inventory"
+     tower-cli group associate  --group "tag_AnsibleGroup_appdbs"  --parent "appdbs" --inventory "Three tier inventory"
+     tower-cli group associate  --group "tag_AnsibleGroup_apps"  --parent "apps" --inventory "Three tier inventory"
+     tower-cli group associate  --group "tag_AnsibleGroup_frontends"  --parent "frontends" --inventory "Three tier inventory"
