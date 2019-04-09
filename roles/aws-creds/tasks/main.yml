@@ -60,9 +60,9 @@
       playbook: site-smoketest-aws.yml
       project: "Homework Assignment"
 
-  - name: Update inventory groups
-    shell: |
-     tower-cli group associate  --group tag_AnsibleGroup_bastions  --parent bastions --inventory "Three tier inventory"
-     tower-cli group associate  --group "tag_AnsibleGroup_appdbs"  --parent "appdbs" --inventory "Three tier inventory"
-     tower-cli group associate  --group "tag_AnsibleGroup_apps"  --parent "apps" --inventory "Three tier inventory"
-     tower-cli group associate  --group "tag_AnsibleGroup_frontends"  --parent "frontends" --inventory "Three tier inventory"
+  #- name: Update inventory groups
+  #  shell: |
+  #   tower-cli group associate  --group tag_AnsibleGroup_bastions  --parent bastions --inventory "Three tier inventory"
+  #   tower-cli group associate  --group "tag_AnsibleGroup_appdbs"  --parent "appdbs" --inventory "Three tier inventory"
+  #   tower-cli group associate  --group "tag_AnsibleGroup_apps"  --parent "apps" --inventory "Three tier inventory"
+  #   tower-cli group associate  --group "tag_AnsibleGroup_frontends"  --parent "frontends" --inventory "Three tier inventory"
