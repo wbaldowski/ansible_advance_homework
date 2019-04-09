@@ -60,4 +60,20 @@
       playbook: site-smoketest-aws.yml
       project: "Homework Assignment"
 
-    
+  - name: Update inventory groups
+    tower_group:
+      name: "{{ item.name }}"
+      inventory: "{{ item.inventory }}"
+      state: present
+      tower_host: "{{ tower_host }}"
+      tower_username: "{{ tower_username }}"
+      tower_password: "{{ tower_password }}"
+      tower_verify_ssl: no
+    loop:
+     - { name: tag_AnsibleGroup_bastions, inventory: bastions }
+     - { name: tag_AnsibleGroup_appdbs, inventory: appdbs }
+     - { name: tag_AnsibleGroup_apps, inventory: apps }
+     - { name: tag_AnsibleGroup_frontends, inventory: frontends }
+
+
+
