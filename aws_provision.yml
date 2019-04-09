@@ -2,8 +2,8 @@
 - hosts: workstation
   become: true
   gather_facts: false
-  vars_files:
-   - aws_provision_vars.yml
+#  vars_files:
+#   - aws_provision_vars.yml
  
   tasks:
     - name: create bin directory
