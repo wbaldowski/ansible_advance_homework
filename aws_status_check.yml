@@ -1,4 +1,4 @@
-- hosts: 'tag:instance_filter=three-tier-app-waldemar.baldowski*'
+- hosts: 'tag_AnsibleGroup_bastions,&tag:instance_filter=three-tier-app-waldemar.baldowski*'
   gather_facts: false
   tasks:
   - name: Check the instances status

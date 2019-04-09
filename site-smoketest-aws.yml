@@ -1,5 +1,17 @@
 - hosts: frontends
   gather_facts: false
   tasks:
-  - name: Use Uri module for wrting smoke test.
-  - name: Fail if 'Ansible has done its job' is not in the page content
+  
+  - name: Curl website
+    command: curl "http://frontend1.{{ ANSIBLE_ADVANCE_GUID }}.example.opentlc.com"
+    register: webpage
+  
+  - debug: var=webpage.stdout
+  
+  - name: Fail
+    fail:
+    when: "'Ansible' not in webpage.stdout"
+  
+  - name: Success
+    debug: msg="Congrats Yours HW Assignment is completed"
+
